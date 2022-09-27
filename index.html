@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <title>To-Do-List</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(45, 45, 45);
+            font-family: 'Courier New', Courier, monospace;
+
+        }
+
+        #container {
+            margin: auto;
+            text-align: center;
+
+        }
+
+        #head {
+            background-color: rgb(33, 33, 33);
+            color: rgb(234, 234, 149);
+            /* margin-top: .5em; */
+            margin-bottom: .5em;
+            padding: 20px
+        }
+
+        #inputBox {
+            background-color: rgb(33, 33, 33);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 5px
+        }
+
+        #inputBox input {
+            color: rgb(234, 234, 149);
+            background-color: black;
+            font-size: 1.8em;
+            border: 0ch;
+            width: 70vw;
+            max-width: 800px;
+            height: 2.2em;
+            border: 2px solid rgb(234, 234, 149);
+
+        }
+
+        #inputBox input:focus {
+            outline: 1px solid yellow;
+        }
+
+        #inputBox button {
+            color: rgb(234, 234, 149);
+            background-color: rgb(43, 40, 40);
+            padding: 1em;
+            border: 2px solid rgb(234, 234, 149);
+        }
+
+        #inputBox button:hover {
+            background-color: rgb(36, 35, 35);
+        }
+
+        #inputBox button:active {
+            background-color: rgb(234, 234, 149);
+            color: black;
+        }
+
+        #listArea {
+            background-color: rgb(33, 33, 33);
+            color: rgb(234, 234, 149);
+            margin-top: .5em;
+            padding: 20px;
+            height: 50vh;
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+
+        #listArea ul {
+            margin: auto;
+            list-style: none;
+        }
+
+        #listArea ul li {
+            margin: auto;
+            padding: 10px;
+            background-color: black;
+            margin-bottom: 0.5em;
+            max-width: 800px;
+            width: 80%;
+        }
+
+        #listArea ul li:active {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $('input').focus();
+
+            $('button').click(function () {
+
+                if ($('input').val().length > 0) {
+                    $('#myList').append("<li>" + $('input').val() + "</li>");
+                }
+                $('input').val("");
+            });
+
+            $("#myList").on('click', "li", function () {
+                $(this).remove();
+            });
+
+
+            $('input').keypress(function (event) {
+
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                    if ($('input').val().length > 0) {
+                        $('#myList').append("<li>" + $('input').val() + "</li>");
+                        $('input').val("");
+                    }
+
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+
+        <h1 id="head">ADD YOUR TASK</h1>
+
+        <div id="inputBox">
+            <input type="text">
+            <button>ADD</button>
+        </div>
+
+        <div id="listArea">
+            <ul id="myList">
+                <li>EAT</li>
+                <li>SLEEP</li>
+                <li>REPEAT</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>
