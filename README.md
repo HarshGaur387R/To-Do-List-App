@@ -12,7 +12,7 @@ A simple and easy to use todo-list application that allows users to keep track o
 
 1. Clone the repository to your local machine
 
-$ git clone https://github.com/your_username/To-Do-List-App.git
+$ git clone https://github.com/HarshGaur387R/To-Do-List-App.git
 
 2. Open the index.html file in your browser
 3. Start adding your tasks and mark them as complete
